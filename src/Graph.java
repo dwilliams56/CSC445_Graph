@@ -1,3 +1,6 @@
+// Dylan Williams
+// CSC 445 Graph Assignment 1
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -16,10 +19,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Graph extends JPanel {
-    private final int PREF_W = 600;
-    private final int PREF_H = 600;
-    private final int CENTER_W = 290;
-    private final int CENTER_H = 290;
+    private final int PREF_W = 1000;
+    private final int PREF_H = 1000;
+    private final int CENTER_W = (PREF_W-BORDER_GAP)/2;
+    private final int CENTER_H = (PREF_H-BORDER_GAP)/2;
     private static final int BORDER_GAP = 20;
     private static final int GRAPH_POINT_WIDTH = 6;
     private ArrayList<Double> values;
@@ -34,8 +37,10 @@ public class Graph extends JPanel {
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+
         AffineTransform oldTransform = g2.getTransform(); // New transform for scaling *
-        g2.scale(1, 1); // Scale of graph *
+        g2.scale(1 , 1); // Scale of graph *
         ArrayList<Ellipse2D> shapes = new ArrayList<Ellipse2D>();
         Line2D.Double line2D = new Line2D.Double();
         ArrayList<Point2D.Double> graphPoints = new ArrayList<Point2D.Double>();
@@ -141,7 +146,6 @@ public class Graph extends JPanel {
             if (i % 2 == 0)
                 xValues.add(values.get(i));
         }
-
 
         sc.close();
 
