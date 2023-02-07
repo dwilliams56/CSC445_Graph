@@ -123,6 +123,9 @@ public class Graph extends JPanel {
         Scanner in = new Scanner(System.in); // Input Scanner
         System.out.println("Input File Path");
         String path = in.nextLine();
+        if(path.contains(".txt") == false){
+            path = path + ".txt";
+        }
         File file = new File(path);
         Scanner sc = new Scanner(file); // File Scanner
         sc.nextLine();
